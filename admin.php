@@ -20,5 +20,6 @@
     <a class="btn btn-primary" href="teacher.php" role="button">Crear profesor</a>
     <a class="btn btn-primary" href="mod.php" role="button">Modificar Datos</a>
     <a class="btn btn-primary" href="cursos.php" role="button">Crear cursos</a>
+    <a class="btn btn-primary" href="listaTeacher.php" role="button">Lista de profesores</a>
 </body>
 </html>
