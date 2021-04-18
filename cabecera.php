@@ -13,7 +13,7 @@
 <body>
 <div class="main-container">
       <div class="logo">
-        <h1>phpSIX</h1>
+        <h1>Pau Egea Cortes</h1>
       </div>
       <div class="container">
         <div class="login">

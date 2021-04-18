@@ -1,9 +1,9 @@
 <?php require_once 'conexion.php'; 
      
      $userId = $_SESSION['user'];
-     var_dump($userId);
+     
      $sql = "SELECT * FROM `phpcalendar`.users where id = $userId";
-     var_dump($sql);
+     $mail = false;
      $guardar = mysqli_query($db, $sql);
     $resultado = $db->query($sql);
         
@@ -11,18 +11,55 @@
     
             while($row=$resultado->fetch_assoc()){
             
-                $type = $row["type"];
-                $username = $row["username"];
-                $pass = $row["pass"];
                 
                 $username = $row["username"];
+                $pass = $row["pass"];
+                $surname = $row["surname"];
+                $email = $row["email"];
+                $pass = $row["pass"];
+                $telephone = $row["telephone"];
                 $name = $row["name"];
-                $name = $row["telephone"];
-                $name = $row["nif"];
+                $nif = $row["nif"];
                
 
 
             }
+        }
+
+        if($_POST){
+            $username =$_POST['username'];
+            $pass=$_POST['pass'];
+            $email=$_POST['email'];
+            $surname = $row["surname"];
+            $name= $_POST['name'];
+            $telephone= $_POST['telephone'];
+            $nif= $_POST['nif'];
+            
+            
+            
+             //pass
+             
+        //UPDATE `users` SET `username` = 'paco', `name` = 'paco', `surname` = 'efe', `telephone` = '54654564654', `nif` = '456465454654651D' WHERE `users`.`id` = 3;
+           
+    
+            $sql = "SELECT * FROM `phpcalendar`.users where email = '$email' ";
+            $guardar = mysqli_query($db, $sql);
+            $resultado = $db->query($sql);
+    
+            if($resultado->num_rows>0){
+                $mail = true;
+               
+            }else{
+                $sql = "UPDATE `users` SET `username` = '$username', `name` = '$name', `surname` = '$surname', `telephone` = '$telephone', `nif` = '$nif' WHERE `users`.`id` = $userId;";
+                $guardar = mysqli_query($db, $sql);
+                $resultado = $db->query($sql);
+                header('Location: login.php ');
+    
+            }
+        
+       
+            
+           
         }
         
     
@@ -36,7 +73,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/register.css" />
-    <title>registro</title>
+    <title>Modificar Datos</title>
 </head>
 <body>
 <body>
@@ -46,16 +83,16 @@
       <form <?php echo $_SERVER['PHP_SELF']; ?> method="POST">
           <div class="input-container">
             <label for="username">Username</label>
-            <input type="text" name="username" required/>
+            <input type="text" name="username" value= <?php echo "$username"?> required/>
           </div>
           <div class="input-container">
             <label for="pass">Contraseña</label>
-            <input type="password" name="pass" required/>
+            <input type="password" name="pass" value= <?php echo "$pass"?> required/>
           </div>
        
             <div class="input-container">
                 <label for="email">Email</label>
-                <input type="email" name="email"required />
+                <input type="email" name="email"value= <?php echo "$email"?> required />
             </div>
             <div> 
            
@@ -65,28 +102,32 @@
 
             <div class="input-container">
                 <label for="name">Nombre</label>
-                <input type="text" name="name" required/>
+                <input type="text" name="name" value= <?php echo "$name"?> required/>
 
             </div>
 
             <div class="input-container">
                 <label for="surname">Apellido</label>
-                <input type="text" name="surname" required/>
+                <input type="text" name="surname" value= <?php echo "$surname"?> required/>
             </div>
             
             <div class="input-container">
                 <label for="telephone">Telefono</label>
-                <input type="text" name="telephone" required/>
+                <input type="text" name="telephone" value= <?php echo "$telephone"?> required/>
             </div>
                 <div class="input-container">
                     <label for="nif">Nif</label>
-                    <input type="text" name="nif"required />
+                    <input type="text" name="nif" value= <?php echo "$nif"?> required />
                 </div>
 
             
 
             <input type="submit" name="submit" values="Registrar" />
-            
+            <?php 
+      if($mail){
+        echo "<h3>El mail introducido ya existe</h3>";
+      }
+      ?>
       </form>
       
   </body>
