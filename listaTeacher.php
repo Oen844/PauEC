@@ -59,7 +59,7 @@ require_once 'conexion.php';
                         <td><?php  echo $data["email"] ?></td>
                         
                         <td>
-                            <a class="link_edit" href="teacher.php">Editar</a>
+                            <a class="link_edit" href="editteacher.php?id=<?php  echo $data["id_teacher"]  ?>">Editar</a>
                             |
                             <a class="link_delete" href="#">Eliminar</a>
                         </td>
