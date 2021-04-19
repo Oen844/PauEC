@@ -58,6 +58,10 @@ li a:hover {
   <li><a href="crearAsignaura.php">Crear Asignatura</a></li>
 
   <li><a href="schedule.php">Crear Clase</a></li>
+  <?php }else{ ?>
+
+    <li><a href="apuntarAsignaura.php">Apuntarse Asignatura</a></li>
+
   <?php } ?>
   <li><a href="endSession.php">Cerrar session</a></li>
   

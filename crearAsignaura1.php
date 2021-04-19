@@ -2,7 +2,7 @@
 require_once 'conexion.php'; 
 $mensaje = false;
     if(empty($_GET['id'])){
-        header('Location: crearClase.php');
+        header('Location: crearAsignaura.php');
     }
 
     $id_course = $_GET['id'];
