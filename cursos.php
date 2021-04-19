@@ -16,6 +16,8 @@ if($_POST){
     var_dump($sql);
 
     $guardar = mysqli_query($db, $sql);
+
+    
     header('Location: cursos.php ');
 
     

@@ -1,6 +1,7 @@
 <?php require_once 'conexion.php'; 
      $invalid = false;
      $mail = false;
+     $mensaje = false;
 
     if($_POST){
         $username =$_POST['username'];
@@ -30,13 +31,18 @@
             $sql = "INSERT INTO `users` (`id`, `username`, `pass`, `email`, `name`, `surname`, `telephone`, `nif`, `date_registered`, `type`) VALUES (NULL,  '$username', '$pass', '$email', '$name', '$surname',  '$telephone', '$nif', CURRENT_DATE(),'$type');";
             $guardar = mysqli_query($db, $sql);
             //$resultado = $db->query($sql);
-            header('Location: login.php ');
+           // header('Location: login.php ');
+           $mensaje = true;
 
         }
     
-   
         
-       
+    }
+    if($mensaje){
+        echo "<script>
+                   alert('Registro Correcto');
+                   window.location= 'schedule.php'
+       </script>";
     }
 ?>
 

@@ -1,10 +1,4 @@
-<?php
-    session_start();
-    
-    
 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +11,11 @@
 <body>
 <h1>La web del estudiante</h1>
 
-<a class="btn btn-primary" href="mod.php" role="button">Modificar usuario</a>
+<?php
+    require("menu.php");
+?>
+
+
 
 <?php
     

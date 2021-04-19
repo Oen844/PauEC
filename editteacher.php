@@ -1,6 +1,7 @@
 <?php
 require_once 'conexion.php'; 
 $mail = false;
+$mensaje= false;
 //INSERT INTO `phpcalendar`.`teachers` (`name`, `surname`, `telephone`, `nif`, `email`) VALUES ('hector', 'valverde', '605854545', '45644564', 'hector@hector.com');
 if($_POST){
     $idTeacher = $_GET['id'];
@@ -23,9 +24,14 @@ if($_POST){
         $guardar = mysqli_query($db, $sql);
         //$resultado = $db->query($sql);
         header('Location: listaTeacher.php ');
-
+        $mensaje= true;
     }
-
+    if($mensaje){
+        echo "<script>
+                   alert('Asignatura añadida');
+                   window.location= 'crearClase.php'
+       </script>";
+    }
    
 }
 // Mostrar datos

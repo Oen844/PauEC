@@ -31,12 +31,39 @@ li a:hover {
 
 <ul>
   <li><a class="active" href="#home">Home</a></li>
-  <li><a href="cursos.php">Crear Curso</a></li>
-  <li><a href="listaTeacher.php">Lista de Profesores</a></li>
   <li><a href="mod.php">Actualizar</a></li>
+  <?php
+  require_once 'conexion.php';
+  $userId = $_SESSION['user'];
+  $sql = "SELECT * FROM `phpcalendar`.users where id = $userId";
+  $mail = false;
+  $guardar = mysqli_query($db, $sql);
+ $resultado = $db->query($sql);
+
+ if($resultado->num_rows>0){
+    
+    while($row=$resultado->fetch_assoc()){
+    
+        $type = $row["type"];
+    }
+}
+
+
+  if($type == 0){ ?>
+  
+  <li><a href="cursos.php">Crear Curso</a></li>
+  
+  <li><a href="listaTeacher.php">Lista de Profesores</a></li>
+
+  <li><a href="crearAsignaura.php">Crear Asignatura</a></li>
+
+  <li><a href="schedule.php">Crear Clase</a></li>
+  <?php } ?>
   <li><a href="endSession.php">Cerrar session</a></li>
   
 </ul>
+
+
 
 </body>
 </html>

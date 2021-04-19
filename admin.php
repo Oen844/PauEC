@@ -15,14 +15,7 @@
     require("menu.php");
 ?>
 
-<?php
-    session_start();
-    
-    
-    
 
-
-?>
     
 </body>
 </html>
