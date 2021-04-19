@@ -36,8 +36,13 @@ if($_POST){
 </head>
 <body>
 <body>
+<?php
+    require("menu.php");
+?>
     <div id="login" class="container">
+ 
       <h3>Crear cursos</h3>
+      
 
       <form <?php echo $_SERVER['PHP_SELF']; ?> method="POST">
           <div class="input-container">

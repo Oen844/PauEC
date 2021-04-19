@@ -77,6 +77,9 @@
 </head>
 <body>
 <body>
+<?php
+    require("menu.php");
+?>
     <div id="login" class="container">
       <h3>Modificar usuario</h3>
 

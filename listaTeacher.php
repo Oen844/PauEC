@@ -20,6 +20,9 @@ require_once 'conexion.php';
     <title>Lista profesores</title>
 </head>
 <body>
+<?php
+    require("menu.php");
+?>
 
 <seccion id="container">
 

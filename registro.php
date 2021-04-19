@@ -9,6 +9,7 @@
         $name= $_POST['name'];
         $telephone= $_POST['telephone'];
         $nif= $_POST['nif'];
+        $surname = $_POST['surname'];
         $type = $_POST['type'];
         
         
@@ -25,9 +26,10 @@
             $mail = true;
            
         }else{
-            $sql = "INSERT INTO `users` (`id`, `username`, `pass`, `email`, `name`, `surname`, `telephone`, `nif`, `date_registered`) VALUES (NULL,  '$username', '$pass', '$email', '$name', '$surname',  '$telephone', '$nif', CURRENT_DATE());";
+            //INSERT INTO `phpcalendar`.`users` (`username`, `pass`, `email`, `name`, `surname`, `telephone`, `nif`, `date_registered`, `type`) VALUES ('pipo', '1234', 'pipo@pipo.com', 'pipo', 'pipo', '56465456', '654654654', '2021-04-18', '1');
+            $sql = "INSERT INTO `users` (`id`, `username`, `pass`, `email`, `name`, `surname`, `telephone`, `nif`, `date_registered`, `type`) VALUES (NULL,  '$username', '$pass', '$email', '$name', '$surname',  '$telephone', '$nif', CURRENT_DATE(),'$type');";
             $guardar = mysqli_query($db, $sql);
-            $resultado = $db->query($sql);
+            //$resultado = $db->query($sql);
             header('Location: login.php ');
 
         }

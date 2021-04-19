@@ -41,6 +41,10 @@ if($_POST){
 </head>
 <body>
 <body>
+
+<?php
+    require("menu.php");
+?>
     <div id="login" class="container">
       <h3>Crear profesor</h3>
 
