@@ -8,18 +8,6 @@
             $params["secure"], $params["httponly"]
         );
     }
-    
+    header('Location: cabecera.php');
     session_destroy();
 ?>
-<div class="limiter">
-    <div class="title-register">
-        <h1>Sesión cerrada correctamente</h2>
-    </div>
-    <div class="subtitle-register">
-        <p>Está siendo redireccionado a la página de login. Si no es redirigido automáticamente pulse <a href="cabecera.php">aquí</a></p>
-    </div>
-    <script language="javascript">setTimeout(function(){window.location.href="cabecera.php";}, 5000);</script>
-    <div class="container-register">
-        
-    </div>
-</div

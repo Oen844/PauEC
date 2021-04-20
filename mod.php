@@ -11,7 +11,6 @@
     
             while($row=$resultado->fetch_assoc()){
             
-                
                 $username = $row["username"];
                 $pass = $row["pass"];
                 $surname = $row["surname"];
@@ -20,8 +19,6 @@
                 $telephone = $row["telephone"];
                 $name = $row["name"];
                 $nif = $row["nif"];
-               
-
 
             }
         }
@@ -35,13 +32,7 @@
             $telephone= $_POST['telephone'];
             $nif= $_POST['nif'];
             
-            
-            
-             //pass
              
-        //UPDATE `users` SET `username` = 'paco', `name` = 'paco', `surname` = 'efe', `telephone` = '54654564654', `nif` = '456465454654651D' WHERE `users`.`id` = 3;
-           
-    
             $sql = "SELECT * FROM `phpcalendar`.users where email = '$email' ";
             $guardar = mysqli_query($db, $sql);
             $resultado = $db->query($sql);
@@ -56,10 +47,7 @@
                 header('Location: login.php ');
     
             }
-        
-       
-            
-           
+                   
         }
         
     
@@ -72,7 +60,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/register.css" />
+    <link rel="stylesheet" href="./css/modificar.css" />
     <title>Modificar Datos</title>
 </head>
 <body>
@@ -97,11 +85,6 @@
                 <label for="email">Email</label>
                 <input type="email" name="email"value= <?php echo "$email"?> required />
             </div>
-            <div> 
-           
-
-            
-            </div>
 
             <div class="input-container">
                 <label for="name">Nombre</label>
@@ -123,9 +106,7 @@
                     <input type="text" name="nif" value= <?php echo "$nif"?> required />
                 </div>
 
-            
-
-            <input type="submit" name="submit" values="Registrar" />
+            <input type="submit" name="submit" values="Registrar" class="btn-submit"/>
             <?php 
       if($mail){
         echo "<h3>El mail introducido ya existe</h3>";

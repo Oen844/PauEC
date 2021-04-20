@@ -8,6 +8,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 li {
@@ -58,6 +59,8 @@ li a:hover {
   <li><a href="crearAsignaura.php">Crear Asignatura</a></li>
 
   <li><a href="schedule.php">Crear Clase</a></li>
+
+  <li><a href="calendario.php">Calendario</a></li>
   <?php }else{ ?>
 
     <li><a href="Asignaura.php">Asignaturas</a></li>
