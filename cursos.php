@@ -1,5 +1,6 @@
 <?php
 require_once 'conexion.php'; 
+$mensaje = false;
 $mail = false;
 //INSERT INTO `courses` (`id_course`, `name`, `description`, `date_start`, `date_end`, `active`) VALUES (NULL, 'asdasdasd', 'asdasdasdasd', '2021-04-08', '2021-04-14', '1');
 //INSERT INTO `phpcalendar`.`courses` (`name`, `description`, `date_start`, `date_end`, `active`) VALUES ('asdasd', 'asdasd', '2021-10-11', '2021-11-09', '1');
@@ -13,17 +14,18 @@ if($_POST){
     
 
     $sql = "INSERT INTO `phpcalendar`.`courses` (`id_course`,`name`, `description`, `date_start`, `date_end`, `active`) VALUES (null, '$name', '$description', '$date_start', '$date_end', '$active');";
-    var_dump($sql);
+    
 
     $guardar = mysqli_query($db, $sql);
-
+    $mensaje = true;
     
-    header('Location: cursos.php ');
+    //header('Location: cursos.php ');
 
-    
 
    
 }
+
+
 ?>
 
 
@@ -33,7 +35,7 @@ if($_POST){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/register.css" />
+    <link rel="stylesheet" href="./css/modificar.css" />
     <title>Crear cursos</title>
 </head>
 <body>
@@ -93,7 +95,13 @@ if($_POST){
             </div>
           
             
-            
+            <?php 
+    if($mensaje){
+        echo "<script>
+                   alert('Curso añadido');
+                   window.location= 'crearAsignaura.php'
+       </script>";
+    }?>
 
             
 
@@ -103,7 +111,7 @@ if($_POST){
       
   </body>
     
-</body>
+
 </html>
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2021 a las 23:57:51
+-- Tiempo de generación: 21-04-2021 a las 20:38:52
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -41,9 +41,12 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`id_class`, `id_teacher`, `id_course`, `id_schedule`, `name`, `color`) VALUES
-(1, 1, 1, 1, 'programacion 1', 'red'),
-(4, 2, 1, 1, 'Matematicas 2', 'black'),
-(5, 3, 1, 1, 'Bases de datos', 'yellow');
+(1, 1, 1, 1, 'programacion 1', '#1bb656'),
+(2, 2, 2, 1, 'Matematicas 2', '#e24040'),
+(5, 3, 1, 1, 'Bases de datos', '#1bb656'),
+(7, 2, 2, 3, 'programacion2', '#e24040'),
+(9, 6, 1, 1, 'matematicas', '#e24040'),
+(11, 5, 1, 1, 'paco', '#1bb656');
 
 -- --------------------------------------------------------
 
@@ -65,7 +68,15 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id_course`, `name`, `description`, `date_start`, `date_end`, `active`) VALUES
-(1, 'desarrollo de aplicaciones', 'todo lo referente aplicaciones', '2021-10-11', '2021-11-09', 1);
+(1, 'desarrollo de aplicaciones', 'todo lo referente aplicaciones', '2021-10-11', '2021-11-09', 1),
+(2, 'DAM', 'desarrollo', '2021-11-12', '2021-11-20', 1),
+(8, 'desarrollo', 'creado mod', '2021-10-12', '2021-11-09', 1),
+(11, 'mega factorias', 'Siempre hay que tener un lugar', '2021-04-18', '2021-11-18', 1),
+(12, 'Grangero', 'Una granja siempre es importante', '2021-04-18', '2022-12-19', 1),
+(13, 'taxista', 'aprende a conducir un coche', '2021-04-18', '2021-04-19', 1),
+(14, 'Panadero', 'hacer pan siempre es importante', '2021-04-18', '2021-04-19', 1),
+(15, 'panpan', 'panpan', '2021-04-18', '2021-04-19', 1),
+(16, 'pin', 'pin', '2021-04-18', '2021-04-19', 1);
 
 -- --------------------------------------------------------
 
@@ -80,6 +91,16 @@ CREATE TABLE `enrollment` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `enrollment`
+--
+
+INSERT INTO `enrollment` (`id_enrollment`, `id_student`, `id_course`, `status`) VALUES
+(7, 3, 1, 1),
+(8, 1, 1, 1),
+(9, 9, 1, 1),
+(10, 28, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -89,8 +110,8 @@ CREATE TABLE `enrollment` (
 CREATE TABLE `schedule` (
   `id_schedule` int(11) NOT NULL,
   `id_class` int(11) NOT NULL,
-  `time_start` time NOT NULL,
-  `time_end` time NOT NULL,
+  `time_start` datetime NOT NULL,
+  `time_end` datetime NOT NULL,
   `day` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -99,8 +120,8 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`id_schedule`, `id_class`, `time_start`, `time_end`, `day`) VALUES
-(2, 1, '10:00:00', '11:00:00', '2021-04-11'),
-(3, 1, '23:46:00', '05:47:00', '2021-04-19');
+(1, 1, '2021-04-21 23:46:00', '2021-04-21 05:47:00', '2021-04-19'),
+(2, 2, '2021-04-21 10:00:00', '2021-04-21 11:00:00', '2021-04-11');
 
 -- --------------------------------------------------------
 
@@ -171,8 +192,8 @@ INSERT INTO `users` (`id`, `username`, `pass`, `email`, `name`, `surname`, `tele
 (2, 'admin', '1234', 'admin@admin.com', 'admin', 'admin', '111111111', '1111111111', '2021-04-17', 0),
 (3, 'paco', '1234', 'paco@paco.com', 'paco', 'efe', '54654564654', '456465454654651D', '2021-04-17', 1),
 (9, 'mama', '1234', 'mama@mama.com', 'mama', 'mama', '5646546', '56456465', '2021-04-17', 3),
-(11, 'nano', '1234', 'nano@nano.com', 'nano', 'nano', '5654654', '45646546', '2021-04-17', 0),
-(13, 'pau', '1234', 'papau84@gmail.com', 'pau', 'egea', '609936060', '54654651D', '2021-04-18', 0),
+(11, 'nano', '1234', 'nano@nano.com', 'nano', 'nano', '5654654', '45646546', '2021-04-17', 2),
+(13, 'pau', '1234', 'papau84@gmail.com', 'pau', 'egea', '609936060', '54654651D', '2021-04-18', 3),
 (28, 'pipo', 'pipo', 'pipo@pipo.com', 'pipo', '', '65465456', '546546546', '2021-04-19', 1);
 
 -- --------------------------------------------------------
@@ -253,25 +274,25 @@ ALTER TABLE `users_admin`
 -- AUTO_INCREMENT de la tabla `class`
 --
 ALTER TABLE `class`
-  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `enrollment`
 --
 ALTER TABLE `enrollment`
-  MODIFY `id_enrollment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_enrollment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id_schedule` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_schedule` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `students`

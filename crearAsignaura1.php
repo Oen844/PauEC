@@ -28,7 +28,7 @@ $mensaje = false;
      if($mensaje){
     echo "<script>
                alert('Asignatura añadida');
-               window.location= 'crearClase.php'
+               window.location= 'crearAsignaura.php'
    </script>";
 }
 
@@ -88,7 +88,7 @@ $mensaje = false;
 
                 <div class="input-container">
                     <label for="color">color</label>
-                    <input type="text" name="color" required />
+                    <input type="color" name="color" required />
                 </div>
 
             

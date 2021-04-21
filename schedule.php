@@ -24,14 +24,14 @@ require_once 'conexion.php';
 
     <seccion id="container">
 
-<h1>Lista de profesores</h1>
-<a href="cursos.php" class="btn_new">Crear curso</a>
+<h1>Lista de Asignaturas</h1>
+
 
 <table>
             <tr>
                 <th>Id_class</th>
+                <th>Nombre</th>
                 <th>Color</th>
-                <th>name</th>
                  
                 <th>Accion</th> 
                 

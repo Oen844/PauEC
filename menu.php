@@ -60,12 +60,14 @@ li a:hover {
 
   <li><a href="schedule.php">Crear Clase</a></li>
 
-  <li><a href="calendario.php">Calendario</a></li>
+  
   <?php }else{ ?>
 
     <li><a href="Asignaura.php">Asignaturas</a></li>
 
   <?php } ?>
+  <li><a href="calendario.php">Calendario</a></li>
+  
   <li><a href="endSession.php">Cerrar session</a></li>
   
 </ul>
