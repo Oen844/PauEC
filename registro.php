@@ -41,7 +41,7 @@
     if($mensaje){
         echo "<script>
                    alert('Registro Correcto');
-                   window.location= 'schedule.php'
+                   window.location= 'login.php'
        </script>";
     }
 ?>

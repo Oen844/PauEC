@@ -41,7 +41,10 @@
                 $mail = true;
                
             }else{
-                $sql = "UPDATE `users` SET `username` = '$username', `name` = '$name', `surname` = '$surname', `telephone` = '$telephone', `nif` = '$nif' WHERE `users`.`id` = $userId;";
+
+                //UPDATE `phpcalendar`.`users` SET `email` = 'papau84@gmalil.com', `name` = 'paus', `surname` = 'egeas', `telephone` = '6099360603', `nif` = '54654651D3' WHERE (`id` = '13');
+
+                $sql = "UPDATE `phpcalendar`.`users` SET `email` = '$email', `name` = '$name', `surname` = '$surname', `telephone` = '$telephone', `nif` = '$nif' WHERE (`id` = '$userId');";
                 $guardar = mysqli_query($db, $sql);
                 $resultado = $db->query($sql);
                 header('Location: login.php ');
@@ -74,40 +77,41 @@
       <form <?php echo $_SERVER['PHP_SELF']; ?> method="POST">
           <div class="input-container">
             <label for="username">Username</label>
-            <input type="text" name="username" value= <?php echo "$username"?> required/>
+            <input type="text" name="username" value= <?php echo "$username";?> required/>
           </div>
           <div class="input-container">
             <label for="pass">Contraseña</label>
-            <input type="password" name="pass" value= <?php echo "$pass"?> required/>
+            <input type="password" name="pass" value= <?php echo "$pass";?> required/>
           </div>
        
             <div class="input-container">
                 <label for="email">Email</label>
-                <input type="email" name="email"value= <?php echo "$email"?> required />
+                <input type="email" name="email" value= <?php echo "$email";?> required />
             </div>
 
             <div class="input-container">
                 <label for="name">Nombre</label>
-                <input type="text" name="name" value= <?php echo "$name"?> required/>
+                <input type="text" name="name" value= <?php echo "$name";?> required/>
 
             </div>
 
             <div class="input-container">
-                <label for="surname">Apellido</label>
-                <input type="text" name="surname" value= <?php echo "$surname"?> required/>
+                <label for="name">Surname</label>
+                <input type="text" name="surname" value= <?php echo "$surname";?> required/>
             </div>
             
             <div class="input-container">
                 <label for="telephone">Telefono</label>
-                <input type="text" name="telephone" value= <?php echo "$telephone"?> required/>
+                <input type="text" name="telephone" value= <?php echo "$telephone";?> required/>
             </div>
                 <div class="input-container">
                     <label for="nif">Nif</label>
-                    <input type="text" name="nif" value= <?php echo "$nif"?> required />
+                    <input type="text" name="nif" value= <?php echo "$nif";?> required />
                 </div>
 
             <input type="submit" name="submit" values="Registrar" class="btn-submit"/>
-            <?php 
+       <?php     
+            
       if($mail){
         echo "<h3>El mail introducido ya existe</h3>";
       }
